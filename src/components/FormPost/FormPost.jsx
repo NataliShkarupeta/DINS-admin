@@ -1,18 +1,31 @@
-import { SubmitButton, Form } from "../styles.styled";
+import {
+  SubmitButton,
+  Form,
+  TitleBlock,
+  FileInput,
+  Wrap,
+  Label,
+} from "../styles.styled";
 
-export const FormPost=()=>{
-    return (
+export const FormPost = () => {
+  return (
+    <>
+      <TitleBlock> Створи новий пост</TitleBlock>
       <Form>
-        
-        <label htmlFor="">
-          Title
-          <input type="text" />
-        </label>
-        <label htmlFor="">
-          Descriptions
-          <input type="text" />
-        </label>
+        <Wrap>
+          <Label htmlFor="">
+            <span>Title</span>
+
+            <input type="text" />
+          </Label>
+          <label htmlFor="">
+            Descriptions
+            <FileInput type="text" />
+          </label>
+        </Wrap>
+
         <SubmitButton>Upload Post</SubmitButton>
       </Form>
-    );
-}
+    </>
+  );
+};

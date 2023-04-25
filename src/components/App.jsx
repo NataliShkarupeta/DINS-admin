@@ -2,14 +2,15 @@ import { useState } from "react";
 import { ModalAsk } from "./modalAsk/ModalAsk";
 import { FormPicture } from "./FormPicture/FormPicture";
 import { FormPost } from "./FormPost/FormPost";
+import { P } from "./styles.styled";
 
 function App() {
-  const [secret, setSecret] = useState(true);
+  const [secret, setSecret] = useState(false);
 
   return (
     <>
       {secret && <ModalAsk setsecret={setSecret} />}
-      <p>Дані будуть відправлені на базу даних</p>
+      <P>Дані будуть відправлені на базу даних</P>
       <FormPost />
       <FormPicture />
     </>
