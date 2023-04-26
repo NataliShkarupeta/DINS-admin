@@ -17,7 +17,7 @@ export const ModalAsk = ({ setsecret }) => {
       <Overlay>
         <ModalContainer onSubmit={handelSubmit}>
           <p>Enter secret key</p>
-          <input type="text" name="text" required />
+          <input type="password" name="text" required />
           <Button type="submit">Enter</Button>
         </ModalContainer>
       </Overlay>

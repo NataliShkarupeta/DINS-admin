@@ -5,7 +5,7 @@ import { FormPost } from "./FormPost/FormPost";
 import { P } from "./styles.styled";
 
 function App() {
-  const [secret, setSecret] = useState(false);
+  const [secret, setSecret] = useState(true);
 
   return (
     <>

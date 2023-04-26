@@ -47,6 +47,7 @@ export const Wrap = styled.div`
   gap: 15px;
   margin-bottom: 20px;
   margin-top: 20px;
+  background-color: #f4ebeb;
 `;
 export const SubmitButton=styled.button`
   padding: 12px;
