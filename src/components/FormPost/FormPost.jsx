@@ -6,7 +6,8 @@ import {
   Wrap,
   Label,
 } from "../styles.styled";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
+import { addPost } from "../../service";
 
 export const FormPost = () => {
   const handelSubmit = (e) => {
@@ -22,12 +23,10 @@ export const FormPost = () => {
       descriptions,
       titleEn,
       descriptionsEn,
-      id: uuidv4(),
-      dateStamp: Date.now(),
     };
-  
-
-    console.log("newPost=>", newPost);
+    addPost(newPost);
+   
+    // console.log("newPost=>", newPost);
     e.target.reset();
   };
 
