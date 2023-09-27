@@ -27,7 +27,7 @@ font-weight:600;
 export const FileInput = styled.textarea`
   display: block;
   height: 200px;
-  width: 500px;
+  /* width: 100vh; */
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   border-top: 5px solid gray;

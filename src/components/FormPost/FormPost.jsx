@@ -6,7 +6,6 @@ import {
   Wrap,
   Label,
 } from "../styles.styled";
-// import { v4 as uuidv4 } from "uuid";
 import { addPost } from "../../service";
 
 export const FormPost = () => {
@@ -25,8 +24,6 @@ export const FormPost = () => {
       descriptionsEn,
     };
     addPost(newPost);
-   
-    // console.log("newPost=>", newPost);
     e.target.reset();
   };
 
