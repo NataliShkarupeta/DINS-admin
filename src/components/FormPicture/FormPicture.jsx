@@ -7,14 +7,15 @@ import {
   FileInput,
   TitleBlock,
 } from "../styles.styled";
-// import { v4 as uuidv4 } from "uuid";
+
 import { addPicture } from "../../service";
 
 export const FormPicture = () => {
-
   const [file, setFile] = useState("");
   const [title, setTitle] = useState("");
   const [descriptions, setDescriptions] = useState("");
+  const [TitleEn, setTitleEn] = useState("");
+  const [descriptionsEn, setDescriptionsEn] = useState("");
   // const [imagePreviewUrl, setImagePreviewUrl] = useState(
   //   <div>Please select an Image for Preview</div>
   // );
@@ -39,9 +40,11 @@ export const FormPicture = () => {
     formData.append("fileImg", file);
     formData.append("title1", title);
     formData.append("descriptions", descriptions);
+    formData.append("TitleEn", TitleEn);
+    formData.append("descriptionsEn", descriptionsEn);
 
-  
     addPicture(formData);
+    console.log(formData);
     e.target.reset();
   };
 
@@ -61,6 +64,18 @@ export const FormPicture = () => {
             }}
           />
         </label>
+        <label htmlFor="">
+          TitleEn
+          <input
+            value={TitleEn}
+            type="text"
+            name="TitleEn"
+            onChange={(e) => {
+              const { name, value } = e.target;
+              if (name === "TitleEn") setTitleEn(value);
+            }}
+          />
+        </label>
         <Wrap>
           <label htmlFor="">
             Descriptions
@@ -71,6 +86,18 @@ export const FormPicture = () => {
               onChange={(e) => {
                 const { name, value } = e.target;
                 if (name === "descriptions") setDescriptions(value);
+              }}
+            ></FileInput>
+          </label>
+          <label htmlFor="">
+            DescriptionsEn
+            <FileInput
+              type="text"
+              name="descriptionsEn"
+              value={descriptionsEn}
+              onChange={(e) => {
+                const { name, value } = e.target;
+                if (name === "descriptionsEn") setDescriptionsEn(value);
               }}
             ></FileInput>
           </label>
