@@ -16,6 +16,9 @@ export const FormPicture = () => {
   const [descriptions, setDescriptions] = useState("");
   const [TitleEn, setTitleEn] = useState("");
   const [descriptionsEn, setDescriptionsEn] = useState("");
+  const [inStock, setInStock] = useState("");
+  const [inStockEn, setInStockEn] = useState("");
+   const [size, setSize] = useState("");
   // const [imagePreviewUrl, setImagePreviewUrl] = useState(
   //   <div>Please select an Image for Preview</div>
   // );
@@ -42,9 +45,12 @@ export const FormPicture = () => {
     formData.append("descriptions", descriptions);
     formData.append("TitleEn", TitleEn);
     formData.append("descriptionsEn", descriptionsEn);
+    formData.append("inStock", inStock);
+    formData.append("inStockEn", inStockEn);
+    formData.append("size", size);
 
     addPicture(formData);
-    console.log(formData);
+    console.log(inStockEn);
     e.target.reset();
   };
 
@@ -118,6 +124,44 @@ export const FormPicture = () => {
               <img src={imagePreviewUrl} alt="" width="500" />
             </ImgPreview> */}
           </label>
+          <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
+            <label htmlFor="">
+              inStock
+              <input
+                value={inStock}
+                type="text"
+                name="inStock"
+                onChange={(e) => {
+                  const { name, value } = e.target;
+                  if (name === "inStock") setInStock(value);
+                }}
+              />
+            </label>
+            <label htmlFor="">
+              inStockEn
+              <input
+                value={inStockEn}
+                type="text"
+                name="inStockEn"
+                onChange={(e) => {
+                  const { name, value } = e.target;
+                  if (name === "inStockEn") setInStockEn(value);
+                }}
+              />
+            </label>
+            <label htmlFor="">
+              size
+              <input
+                value={size}
+                type="text"
+                name="size"
+                onChange={(e) => {
+                  const { name, value } = e.target;
+                  if (name === "size") setSize(value);
+                }}
+              />
+            </label>
+          </div>
         </Wrap>
 
         <SubmitButton type="submit">Upload picture</SubmitButton>
