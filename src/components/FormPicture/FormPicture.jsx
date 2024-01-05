@@ -18,7 +18,11 @@ export const FormPicture = () => {
   const [descriptionsEn, setDescriptionsEn] = useState("");
   const [inStock, setInStock] = useState("");
   const [inStockEn, setInStockEn] = useState("");
-   const [size, setSize] = useState("");
+  const [size, setSize] = useState("");
+  const [place, setplace] = useState("");
+  const [placeEn, setplaceEn] = useState("");
+
+  //  const [form,setForm]=useState('')
   // const [imagePreviewUrl, setImagePreviewUrl] = useState(
   //   <div>Please select an Image for Preview</div>
   // );
@@ -48,11 +52,21 @@ export const FormPicture = () => {
     formData.append("inStock", inStock);
     formData.append("inStockEn", inStockEn);
     formData.append("size", size);
+    formData.append("place", place);
+    formData.append("placeEn", placeEn);
 
     addPicture(formData);
-    console.log(inStockEn);
+    console.log(formData);
     e.target.reset();
   };
+
+  // const clickHandler=(e)=>{
+  //    const { target } = e;
+  //    const value = target.type === "checkbox" ? target.checked : target.value;
+  //    const { name } = target;
+
+  //    setForm((f) => ({ form, [name]: value }));
+  // }
 
   return (
     <>
@@ -124,7 +138,9 @@ export const FormPicture = () => {
               <img src={imagePreviewUrl} alt="" width="500" />
             </ImgPreview> */}
           </label>
-          <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+          >
             <label htmlFor="">
               inStock
               <input
@@ -158,6 +174,30 @@ export const FormPicture = () => {
                 onChange={(e) => {
                   const { name, value } = e.target;
                   if (name === "size") setSize(value);
+                }}
+              />
+            </label>
+            <label htmlFor="">
+              place
+              <input
+                value={place}
+                type="text"
+                name="place"
+                onChange={(e) => {
+                  const { name, value } = e.target;
+                  if (name === "place") setplace(value);
+                }}
+              />
+            </label>
+            <label htmlFor="">
+              placeEn
+              <input
+                value={placeEn}
+                type="text"
+                name="placeEn"
+                onChange={(e) => {
+                  const { name, value } = e.target;
+                  if (name === "placeEn") setplaceEn(value);
                 }}
               />
             </label>
