@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ModalAsk } from "./modalAsk/ModalAsk";
-import { FormPicture } from "./FormPicture/FormPicture";
 import { FormPost } from "./FormPost/FormPost";
 import { P } from "./styles.styled";
+import { FormPicture } from "./formPicture/FormPicture";
 
 function App() {
   const [secret, setSecret] = useState(true);

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const URL="http://localhost:3001/blog";
-const URLForPic = "http://localhost:3001/pictures";
+const URL = process.env.REACT_APP_URLBLOG;
+const URLForPic = process.env.REACT_APP_URLPICTURE;
 
 
 export const addPost = async (data) => {

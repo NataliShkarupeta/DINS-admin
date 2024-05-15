@@ -56,9 +56,10 @@ export const FormPicture = () => {
     formData.append("placeEn", placeEn);
 
     addPicture(formData);
-    console.log(formData);
-    e.target.reset();
+   
+    // formData.reset();
   };
+
 
   // const clickHandler=(e)=>{
   //    const { target } = e;
