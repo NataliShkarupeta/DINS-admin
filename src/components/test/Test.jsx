@@ -21,7 +21,6 @@ export const FormPicture = () => {
   const [place, setplace] = useState("");
   const [placeEn, setplaceEn] = useState("");
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target.form);
@@ -37,10 +36,9 @@ export const FormPicture = () => {
     formData.append("placeEn", placeEn);
 
     addPicture(formData);
-  
   };
 
- return (
+  return (
     <>
       <TitleBlock> Завантаж картину</TitleBlock>
       <Form onSubmit={handleSubmit} enctype="multipart/form-data">
