@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  // ImgPreview,
   SubmitButton,
   Form,
   Wrap,
@@ -22,24 +21,6 @@ export const FormPicture = () => {
   const [place, setplace] = useState("");
   const [placeEn, setplaceEn] = useState("");
 
-  //  const [form,setForm]=useState('')
-  // const [imagePreviewUrl, setImagePreviewUrl] = useState(
-  //   <div>Please select an Image for Preview</div>
-  // );
-
-  // const handleImageChange = (e) => {
-  //   e.preventDefault();
-
-  //   let reader = new FileReader();
-
-  //   let file = e.target.files[0];
-
-  //   reader.onloadend = () => {
-  //     setFile(file);
-  //     setImagePreviewUrl(reader.result);
-  //   };
-  //   reader.readAsDataURL(file);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,18 +37,11 @@ export const FormPicture = () => {
     formData.append("placeEn", placeEn);
 
     addPicture(formData);
-   
-    // formData.reset();
+  
   };
 
 
-  // const clickHandler=(e)=>{
-  //    const { target } = e;
-  //    const value = target.type === "checkbox" ? target.checked : target.value;
-  //    const { name } = target;
-
-  //    setForm((f) => ({ form, [name]: value }));
-  // }
+ 
 
   return (
     <>

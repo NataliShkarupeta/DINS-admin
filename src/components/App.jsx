@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       {secret && <ModalAsk setsecret={setSecret} />}
-      <P>Дані будуть відправлені у базу даних</P>
+      <P>Дані будуть відправлені у базу даних </P>
       <FormPost />
       <FormPicture />
     </>
