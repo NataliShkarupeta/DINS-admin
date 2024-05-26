@@ -40,10 +40,7 @@ export const FormPicture = () => {
   
   };
 
-
- 
-
-  return (
+ return (
     <>
       <TitleBlock> Завантаж картину</TitleBlock>
       <Form onSubmit={handleSubmit} enctype="multipart/form-data">
