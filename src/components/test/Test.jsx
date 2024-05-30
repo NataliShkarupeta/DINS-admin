@@ -8,6 +8,11 @@ import {
 } from "../styles.styled";
 
 import { addPicture } from "../../service";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notifyYes = () => toast.success("Дані відправлені");
+const notifyNo = () => toast.error("Щось не вийшло, спробуй ще раз");
 
 export const FormPicture = () => {
   const [file, setFile] = useState("");
@@ -21,25 +26,61 @@ export const FormPicture = () => {
   const [place, setplace] = useState("");
   const [placeEn, setplaceEn] = useState("");
 
+  function addFieldsToFormData(formData, fields) {
+    for (let fieldName in fields) {
+      if (fields.hasOwnProperty(fieldName)) {
+        formData.append(fieldName, fields[fieldName]);
+      }
+    }
+  }
+
+  function clearFormData(formData) {
+    for (let key of formData.keys()) {
+      formData.delete(key);
+    }
+  }
+
+  const fieldsToAdd = {
+    fileImg: file,
+    title1: title,
+    descriptions: descriptions,
+    TitleEn: TitleEn,
+    descriptionsEn: descriptionsEn,
+    inStock: inStock,
+    inStockEn: inStockEn,
+    size: size,
+    place: place,
+    placeEn: placeEn,
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target.form);
-    formData.append("fileImg", file);
-    formData.append("title1", title);
-    formData.append("descriptions", descriptions);
-    formData.append("TitleEn", TitleEn);
-    formData.append("descriptionsEn", descriptionsEn);
-    formData.append("inStock", inStock);
-    formData.append("inStockEn", inStockEn);
-    formData.append("size", size);
-    formData.append("place", place);
-    formData.append("placeEn", placeEn);
+    addFieldsToFormData(formData, fieldsToAdd);
+    // formData.append("fileImg", file);
+    // formData.append("title1", title);
+    // formData.append("descriptions", descriptions);
+    // formData.append("TitleEn", TitleEn);
+    // formData.append("descriptionsEn", descriptionsEn);
+    // formData.append("inStock", inStock);
+    // formData.append("inStockEn", inStockEn);
+    // formData.append("size", size);
+    // formData.append("place", place);
+    // formData.append("placeEn", placeEn);
 
-    addPicture(formData);
+    addPicture(formData).then((res) => {
+      if (res && res.status === "success") {
+        return notifyYes();
+      } else {
+        return notifyNo();
+      }
+    });
+    clearFormData(formData);
   };
 
   return (
     <>
+      <ToastContainer position="top-center" />
       <TitleBlock> Завантаж картину</TitleBlock>
       <Form onSubmit={handleSubmit} enctype="multipart/form-data">
         <label htmlFor="">

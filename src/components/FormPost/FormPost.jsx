@@ -7,6 +7,11 @@ import {
   Label,
 } from "../styles.styled";
 import { addPost } from "../../service";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notifyYes = () => toast.success("Дані відправлені");
+const notifyNo = () => toast.error("Щось не вийшло, спробуй ще раз");
 
 export const FormPost = () => {
   const handelSubmit = (e) => {
@@ -23,12 +28,21 @@ export const FormPost = () => {
       titleEn,
       descriptionsEn,
     };
-    addPost(newPost);
-    e.target.reset();
+    addPost(newPost)
+      .then((res) => {
+        if (res && res.status === 'success') {
+          return notifyYes();
+        } else {
+          return notifyNo();
+        }
+      })
+
+      .finally(e.target.reset());
   };
 
   return (
     <>
+      <ToastContainer position="top-center" />
       <TitleBlock>Створи новий пост</TitleBlock>
       <Form onSubmit={handelSubmit}>
         <Wrap>
